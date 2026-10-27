@@ -1,26 +1,117 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-javanese: "Noto Sans Javanese", "Tuladha Jejeg", sans-serif;
+  --font-script: "Great Vibes", cursive;
+
+  /* Palet Warna Jawa & Tradisional */
+  --color-sogan: #5B3A1E;
+  --color-gading: #F5EBD7;
+  --color-emas: #C9A24B;
+  --color-maroon: #5A1E24;
+  --color-arang: #1E1410;
+
+  /* Tint & Shade Helpers */
+  --color-sogan-light: #7d542e;
+  --color-sogan-dark: #3f2612;
+
+  --color-gading-light: #fbf7ee;
+  --color-gading-dark: #e8d9bc;
+
+  --color-emas-light: #ddbe6c;
+  --color-emas-dark: #a98330;
+
+  --color-maroon-light: #782931;
+  --color-maroon-dark: #3f1217;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --sogan: #5B3A1E;
+  --gading: #F5EBD7;
+  --emas: #C9A24B;
+  --maroon: #5A1E24;
+  --arang: #1E1410;
+
+  --bg-primary: var(--gading);
+  --text-primary: var(--sogan);
+  --text-heading: var(--arang);
+  --accent-gold: var(--emas);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--gading);
+  color: var(--sogan);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom font utility for Aksara Jawa */
+.font-javanese {
+  font-family: var(--font-javanese);
+}
+
+/* Custom emas gradient utility */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #a98330 0%, #ddbe6c 50%, #C9A24B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism cards with gading & emas palette */
+.glass-card {
+  background: rgba(245, 235, 215, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 75, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(91, 58, 30, 0.12);
+}
+
+.glass-card-dark {
+  background: rgba(90, 30, 36, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(201, 162, 75, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(30, 20, 16, 0.55);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #e8d9bc;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A24B;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a98330;
+}
+
+/* Drift animation for batik background */
+@keyframes drift {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-drift {
+  animation: drift 20s linear infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift {
+    animation: none;
+  }
 }

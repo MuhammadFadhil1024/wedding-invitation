@@ -1,0 +1,58 @@
+<!-- TODO: ganti aset final jika tersedia dari desainer -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" fill="none">
+  <defs>
+    <linearGradient id="koriGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C77A" />
+      <stop offset="50%" stop-color="#C9A24B" />
+      <stop offset="100%" stop-color="#8B6922" />
+    </linearGradient>
+  </defs>
+
+  <!-- Puncak Gapura (Mahkota / Kala Makara) -->
+  <path d="M 120 8 L 123 20 L 132 23 L 125 30 L 127 40 L 120 35 L 113 40 L 115 30 L 108 23 L 117 20 Z" fill="url(#koriGold)" />
+  <circle cx="120" cy="50" r="4" fill="url(#koriGold)" />
+
+  <!-- Lengkung Kubah Gapura (Pointed Moorish / Javanese Paduraksa Arch) -->
+  <path
+    d="M 28 310
+       L 28 140
+       C 28 85, 70 55, 120 55
+       C 170 55, 212 85, 212 140
+       L 212 310"
+    stroke="url(#koriGold)"
+    stroke-width="2.5"
+    fill="none"
+  />
+
+  <!-- Inner Double Border -->
+  <path
+    d="M 38 310
+       L 38 142
+       C 38 95, 76 68, 120 68
+       C 164 68, 202 95, 202 142
+       L 202 310"
+    stroke="url(#koriGold)"
+    stroke-width="1.2"
+    stroke-dasharray="4 2"
+    fill="none"
+  />
+
+  <!-- Pilar Kiri & Kanan dengan Gelang Dekoratif -->
+  <!-- Pilar Kiri -->
+  <rect x="22" y="130" width="12" height="180" rx="3" stroke="url(#koriGold)" stroke-width="1.5" fill="none" />
+  <line x1="20" y1="180" x2="36" y2="180" stroke="url(#koriGold)" stroke-width="2" />
+  <line x1="20" y1="240" x2="36" y2="240" stroke="url(#koriGold)" stroke-width="2" />
+  <rect x="18" y="302" width="16" height="12" rx="2" fill="url(#koriGold)" />
+
+  <!-- Pilar Kanan -->
+  <rect x="206" y="130" width="12" height="180" rx="3" stroke="url(#koriGold)" stroke-width="1.5" fill="none" />
+  <line x1="204" y1="180" x2="220" y2="180" stroke="url(#koriGold)" stroke-width="2" />
+  <line x1="204" y1="240" x2="220" y2="240" stroke="url(#koriGold)" stroke-width="2" />
+  <rect x="206" y="302" width="16" height="12" rx="2" fill="url(#koriGold)" />
+
+  <!-- Sulur Daun di Sisi Atas Lengkungan -->
+  <path d="M 60 70 Q 75 55 90 62" stroke="url(#koriGold)" stroke-width="1.5" stroke-linecap="round" fill="none" />
+  <path d="M 180 70 Q 165 55 150 62" stroke="url(#koriGold)" stroke-width="1.5" stroke-linecap="round" fill="none" />
+  <circle cx="90" cy="62" r="2.5" fill="url(#koriGold)" />
+  <circle cx="150" cy="62" r="2.5" fill="url(#koriGold)" />
+</svg>

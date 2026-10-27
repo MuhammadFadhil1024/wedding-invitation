@@ -1,0 +1,39 @@
+<!-- TODO: ganti aset final jika tersedia dari desainer -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="melatiGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C77A" />
+      <stop offset="50%" stop-color="#C9A24B" />
+      <stop offset="100%" stop-color="#8B6922" />
+    </linearGradient>
+  </defs>
+
+  <!-- Corner Border Vines (Sulur Sudut) -->
+  <path d="M 4 96 L 4 28 C 4 14, 14 4, 28 4 L 96 4" stroke="url(#melatiGold)" stroke-width="1.8" stroke-linecap="round" />
+  <path d="M 12 96 L 12 32 C 12 20, 20 12, 32 12 L 96 12" stroke="url(#melatiGold)" stroke-width="0.9" stroke-dasharray="3 2" />
+
+  <!-- Bunga Melati Utama di Sudut (Jasmine Bloom with 5 Round Petals) -->
+  <g transform="translate(24, 24)">
+    <circle cx="0" cy="0" r="3.5" fill="url(#melatiGold)" />
+    <!-- 5 Kelopak Melati -->
+    <ellipse cx="0" cy="-9" rx="3.5" ry="5.5" fill="url(#melatiGold)" fill-opacity="0.85" />
+    <ellipse cx="8.5" cy="-2.8" rx="3.5" ry="5.5" transform="rotate(72 8.5 -2.8)" fill="url(#melatiGold)" fill-opacity="0.85" />
+    <ellipse cx="5.3" cy="7.3" rx="3.5" ry="5.5" transform="rotate(144 5.3 7.3)" fill="url(#melatiGold)" fill-opacity="0.85" />
+    <ellipse cx="-5.3" cy="7.3" rx="3.5" ry="5.5" transform="rotate(216 -5.3 7.3)" fill="url(#melatiGold)" fill-opacity="0.85" />
+    <ellipse cx="-8.5" cy="-2.8" rx="3.5" ry="5.5" transform="rotate(288 -8.5 -2.8)" fill="url(#melatiGold)" fill-opacity="0.85" />
+  </g>
+
+  <!-- Kuncup Melati & Daun di Tangkai Horisontal -->
+  <circle cx="56" cy="4" r="2.5" fill="url(#melatiGold)" />
+  <path d="M 56 4 Q 68 0 78 4" stroke="url(#melatiGold)" stroke-width="1.2" fill="none" />
+  <ellipse cx="78" cy="4" rx="2" ry="4" transform="rotate(90 78 4)" fill="url(#melatiGold)" />
+
+  <!-- Kuncup Melati & Daun di Tangkai Vertikal -->
+  <circle cx="4" cy="56" r="2.5" fill="url(#melatiGold)" />
+  <path d="M 4 56 Q 0 68 4 78" stroke="url(#melatiGold)" stroke-width="1.2" fill="none" />
+  <ellipse cx="4" cy="78" rx="2" ry="4" fill="url(#melatiGold)" />
+
+  <!-- Sulur Daun Melingkar (Spiral Vine) -->
+  <path d="M 24 24 Q 45 45 42 62 Q 40 70 34 68 Q 28 66 32 58" stroke="url(#melatiGold)" stroke-width="1.2" fill="none" stroke-linecap="round" />
+  <circle cx="32" cy="58" r="1.5" fill="url(#melatiGold)" />
+</svg>

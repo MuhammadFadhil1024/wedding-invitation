@@ -1,0 +1,70 @@
+<!-- TODO: ganti aset final jika tersedia dari desainer -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 320" fill="none">
+  <defs>
+    <linearGradient id="gununganGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C77A" />
+      <stop offset="50%" stop-color="#C9A24B" />
+      <stop offset="100%" stop-color="#8B6922" />
+    </linearGradient>
+  </defs>
+
+  <!-- Gunungan Outer Contour (Pohon Hayat / Kayon) -->
+  <path
+    d="M 100 8
+       C 112 40, 135 60, 150 95
+       C 165 130, 175 165, 175 210
+       C 175 240, 160 265, 140 285
+       C 125 300, 110 308, 100 312
+       C 90 308, 75 300, 60 285
+       C 40 265, 25 240, 25 210
+       C 25 165, 35 130, 50 95
+       C 65 60, 88 40, 100 8 Z"
+    stroke="url(#gununganGold)"
+    stroke-width="2"
+    fill="#5A1E24"
+    fill-opacity="0.35"
+  />
+
+  <!-- Inner Concentric Border -->
+  <path
+    d="M 100 24
+       C 110 50, 128 70, 140 100
+       C 152 130, 162 165, 162 205
+       C 162 232, 148 255, 130 272
+       C 118 285, 108 292, 100 295
+       C 92 292, 82 285, 70 272
+       C 52 255, 38 232, 38 205
+       C 38 165, 48 130, 60 100
+       C 72 70, 90 50, 100 24 Z"
+    stroke="url(#gununganGold)"
+    stroke-width="1.2"
+    stroke-dasharray="3 2"
+  />
+
+  <!-- Puncak Gunungan (Makuta / Spire) -->
+  <line x1="100" y1="2" x2="100" y2="45" stroke="url(#gununganGold)" stroke-width="2.5" stroke-linecap="round" />
+  <circle cx="100" cy="18" r="3.5" fill="url(#gununganGold)" />
+
+  <!-- Pohon Hayat (Trunk & Branches) -->
+  <path d="M 100 300 L 100 130" stroke="url(#gununganGold)" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M 100 240 Q 125 220 145 235" stroke="url(#gununganGold)" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M 100 240 Q 75 220 55 235" stroke="url(#gununganGold)" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M 100 200 Q 130 180 150 195" stroke="url(#gununganGold)" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M 100 200 Q 70 180 50 195" stroke="url(#gununganGold)" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M 100 160 Q 125 140 140 150" stroke="url(#gununganGold)" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M 100 160 Q 75 140 60 150" stroke="url(#gununganGold)" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- Gapura Rumah / Paduraksa at Base -->
+  <path d="M 82 300 L 82 255 Q 100 242 118 255 L 118 300 Z" stroke="url(#gununganGold)" stroke-width="1.5" fill="none" />
+  <line x1="88" y1="265" x2="112" y2="265" stroke="url(#gununganGold)" stroke-width="1" />
+  <line x1="100" y1="250" x2="100" y2="300" stroke="url(#gununganGold)" stroke-width="1" />
+
+  <!-- Sulur Daun & Bunga Khas Wayang -->
+  <circle cx="100" cy="115" r="4" fill="url(#gununganGold)" />
+  <circle cx="145" cy="235" r="2.5" fill="url(#gununganGold)" />
+  <circle cx="55" cy="235" r="2.5" fill="url(#gununganGold)" />
+  <circle cx="150" cy="195" r="2.5" fill="url(#gununganGold)" />
+  <circle cx="50" cy="195" r="2.5" fill="url(#gununganGold)" />
+  <circle cx="140" cy="150" r="2.5" fill="url(#gununganGold)" />
+  <circle cx="60" cy="150" r="2.5" fill="url(#gununganGold)" />
+</svg>
