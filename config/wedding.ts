@@ -58,12 +58,12 @@ export interface WeddingConfig {
 export const weddingConfig: WeddingConfig = {
   groom: {
     name: "Arya",
-    fullName: "Raden Arya Wirawan, S.T.",
+    fullName: "Arya Wirawan, S.T.",
     role: "groom",
     father: "Bpk. Bambang Wirawan",
     mother: "Ibu Sri Rahayu",
     instagram: "aryawirawan",
-    photo: "/images/groom.jpg",
+    photo: "/images/groom.svg",
   },
   bride: {
     name: "Laras",
@@ -72,7 +72,7 @@ export const weddingConfig: WeddingConfig = {
     father: "Bpk. Hadi Subroto",
     mother: "Ibu Endang Lestari",
     instagram: "sekarlaras",
-    photo: "/images/bride.jpg",
+    photo: "/images/bride.svg",
   },
   combinedName: "Arya & Laras",
   // ISO date with timezone +07:00 (WIB)

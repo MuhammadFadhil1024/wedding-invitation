@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, MotionConfig, type Variants } from "motion/react";
 import { weddingConfig } from "@/config/wedding";
-import { formatIndonesianDate } from "@/lib/utils";
 import { Ornament } from "@/components/ui/Ornament";
 import { BatikBackground } from "@/components/ui/BatikBackground";
+import { MusicToggle } from "@/components/ui/MusicToggle";
+import { BottomNav, useScrollSpy } from "@/components/ui/BottomNav";
 import { OpeningSection } from "@/components/sections/OpeningSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { QuoteSection } from "@/components/sections/QuoteSection";
@@ -22,10 +23,21 @@ interface InvitationProps {
 
 export function Invitation({ guestName }: InvitationProps) {
   const [opened, setOpened] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const weddingDateStr = formatIndonesianDate(weddingConfig.weddingDate);
+  // Section IDs for scrollspy
+  const sectionIds = [
+    "opening",
+    "hero",
+    "quote",
+    "couple",
+    "events",
+    "gift",
+    "wishes",
+    "closing",
+  ];
+
+  // Auto-detect active section on scroll
+  const activeSection = useScrollSpy(sectionIds, 120);
 
   // Kunci scroll saat cover aktif & unlock saat cover dibuka
   useEffect(() => {
@@ -45,35 +57,9 @@ export function Invitation({ guestName }: InvitationProps) {
     };
   }, [opened]);
 
-  // Toggle audio playback
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch((err) => {
-          console.warn("Audio autoplay blocked or failed:", err);
-        });
-    }
-  };
-
   // Open invitation handler
   const handleOpenInvitation = () => {
     setOpened(true);
-
-    if (audioRef.current) {
-      audioRef.current.volume = 0.6;
-      audioRef.current
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch((err) => {
-          console.warn("User triggered audio play was prevented:", err);
-        });
-    }
   };
 
   // Motion variants untuk stagger masuk teks di cover
@@ -100,14 +86,6 @@ export function Invitation({ guestName }: InvitationProps) {
   return (
     <MotionConfig>
       <main className="relative min-h-screen bg-gading text-sogan overflow-x-hidden selection:bg-emas selection:text-arang">
-        {/* Background Audio */}
-        <audio
-          ref={audioRef}
-          src={weddingConfig.media.audio}
-          loop
-          preload="auto"
-        />
-
         {/* 1. COVER OVERLAY (Layar Buka Undangan) */}
         <AnimatePresence>
           {!opened && (
@@ -282,7 +260,7 @@ export function Invitation({ guestName }: InvitationProps) {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={2}
-                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z"
                             />
                           </svg>
                           <span>Buka Undangan</span>
@@ -298,66 +276,34 @@ export function Invitation({ guestName }: InvitationProps) {
 
         {/* 2. FLOATING MUSIC TOGGLE BUTTON */}
         {opened && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            type="button"
-            onClick={toggleAudio}
-            aria-label={isPlaying ? "Matikan Musik" : "Putar Musik"}
-            className="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-maroon border border-emas/60 shadow-xl flex items-center justify-center text-emas hover:text-emas-light hover:bg-maroon-dark transition-all cursor-pointer"
-          >
-            {isPlaying ? (
-              <div className="relative flex items-center justify-center">
-                <span className="absolute w-8 h-8 rounded-full border border-emas animate-ping opacity-30" />
-                <svg
-                  className="w-5 h-5 animate-[spin_6s_linear_infinite]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="12" r="9" strokeWidth="2" />
-                  <circle cx="12" cy="12" r="3" strokeWidth="2" />
-                  <path strokeLinecap="round" d="M12 3v3" strokeWidth="2" />
-                </svg>
-              </div>
-            ) : (
-              <svg
-                className="w-5 h-5 text-emas/60"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"
-                />
-              </svg>
-            )}
-          </motion.button>
+          <MusicToggle
+            audioSrc={weddingConfig.media.audio}
+            initialVolume={0.6}
+            autoPlayOnOpen={true}
+          />
         )}
 
         {/* 3. MAIN INVITATION CONTENT (Latar Utama: --gading #F5EBD7, Batik Sogan: #5B3A1E) */}
         <BatikBackground opacity={0.06} strokeColor="#5B3A1E" variant="kawung">
           <div className="max-w-2xl mx-auto shadow-2xl bg-gading/80 backdrop-blur-sm min-h-screen border-x border-emas/25">
-            <OpeningSection guestName={guestName} />
-            <HeroSection guestName={guestName} />
-            <QuoteSection />
-            <CoupleSection />
-            <EventSection />
-            <GiftSection />
-            <WishesSection guestName={guestName} />
-            <ClosingSection />
+            <section id="opening"><OpeningSection guestName={guestName} /></section>
+            <section id="hero"><HeroSection guestName={guestName} /></section>
+            <section id="quote"><QuoteSection /></section>
+            <section id="couple"><CoupleSection /></section>
+            <section id="events"><EventSection /></section>
+            <section id="gift"><GiftSection /></section>
+            <section id="wishes"><WishesSection guestName={guestName} /></section>
+            <section id="closing"><ClosingSection /></section>
           </div>
         </BatikBackground>
+
+        {/* 4. BOTTOM NAVIGATION (Hidden temporarily) */}
+        {/* {opened && (
+          <BottomNav activeSection={activeSection} onSectionClick={(id) => {
+            const el = document.getElementById(id);
+            el?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }} />
+        )} */}
       </main>
     </MotionConfig>
   );

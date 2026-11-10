@@ -2,14 +2,14 @@
 
 import React from "react";
 import { weddingConfig } from "@/config/wedding";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Ornament } from "@/components/ui/Ornament";
 
 export function QuoteSection() {
   const { quote } = weddingConfig;
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -20,21 +20,21 @@ export function QuoteSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: "easeOut" as const },
     },
   };
 
-  const cornerVariants = {
+  const cornerVariants: Variants = {
     hidden: { opacity: 0, scale: 0.6 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
 

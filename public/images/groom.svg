@@ -1,0 +1,7 @@
+<svg width="448" height="640" viewBox="0 0 448 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="448" height="640" fill="#F5F0E1"/>
+  <rect x="84" y="140" width="280" height="280" rx="140" fill="#E8DCC8"/>
+  <circle cx="224" cy="280" r="110" fill="#D4C4A8"/>
+  <ellipse cx="224" cy="480" rx="100" ry="120" fill="#D4C4A8"/>
+  <text x="224" y="580" text-anchor="middle" font-family="serif" font-size="24" fill="#5D4037" font-weight="600">Mempelai Pria</text>
+</svg>
