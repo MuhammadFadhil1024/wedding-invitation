@@ -13,7 +13,7 @@ import { QuoteSection } from "@/components/sections/QuoteSection";
 import { CoupleSection } from "@/components/sections/CoupleSection";
 import { EventSection } from "@/components/sections/EventSection";
 import { GiftSection } from "@/components/sections/GiftSection";
-import { WishesSection } from "@/components/sections/WishesSection";
+import { UcapanSection } from "@/components/sections/Ucapan";
 import { ClosingSection } from "@/components/sections/ClosingSection";
 
 interface InvitationProps {
@@ -292,7 +292,7 @@ export function Invitation({ guestName }: InvitationProps) {
             <section id="couple"><CoupleSection /></section>
             <section id="events"><EventSection /></section>
             <section id="gift"><GiftSection /></section>
-            <section id="wishes"><WishesSection guestName={guestName} /></section>
+            <section id="wishes"><UcapanSection guestName={guestName} /></section>
             <section id="closing"><ClosingSection /></section>
           </div>
         </BatikBackground>

@@ -66,6 +66,14 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* Gading card - solid gading background with gold border */
+.gading-card {
+  background: var(--gading);
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  box-shadow: 0 8px 24px -8px rgba(91, 58, 30, 0.1);
+  border-radius: 1rem;
+}
+
 /* Glassmorphism cards with gading & emas palette */
 .glass-card {
   background: rgba(245, 235, 215, 0.82);
