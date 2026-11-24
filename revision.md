@@ -1,0 +1,4 @@
+- hilangkan gambar batik kawung di component invitation.tsx
+- di page Opening section pojok kanan atas dan pojok kiri bawah tambahkan bunga bisa berwarna maroon
+- Hero section nama mempelai jangan berwarna putih. karena sekarang sulit untuk di baca.
+- di quote section tambahkan padding kiri kanan untuk content nya di corner ornaments.

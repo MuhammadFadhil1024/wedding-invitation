@@ -98,16 +98,10 @@ export function Invitation({ guestName }: InvitationProps) {
               }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-gradient-to-b from-maroon via-[#451419] to-maroon-dark text-center overflow-hidden touch-none"
             >
-              {/* Pola Kawung Samar di Latar Cover */}
-              <BatikBackground
-                opacity={0.06}
-                strokeColor="#C9A24B"
-                variant="kawung"
-                className="absolute inset-0"
-              >
+              {/* Solid maroon gradient background - no batik pattern */}
                 <div className="relative w-full h-full min-h-screen flex items-center justify-center p-3 sm:p-4">
                   {/* GERBANG KIRI (Gunungan / Sayap Gapura Kiri) */}
-                  <motion.div
+                  {/* <motion.div
                     initial={{ x: 0 }}
                     exit={{
                       x: "-100%",
@@ -117,10 +111,10 @@ export function Invitation({ guestName }: InvitationProps) {
                     className="absolute left-[-15%] sm:left-[-5%] lg:left-[4%] top-1/2 -translate-y-1/2 pointer-events-none select-none z-10 transform-gpu opacity-40 sm:opacity-75 lg:opacity-90"
                   >
                     <Ornament type="gunungan" size={240} />
-                  </motion.div>
+                  </motion.div> */}
 
                   {/* GERBANG KANAN (Gunungan / Sayap Gapura Kanan) */}
-                  <motion.div
+                  {/* <motion.div
                     initial={{ x: 0 }}
                     exit={{
                       x: "100%",
@@ -130,7 +124,7 @@ export function Invitation({ guestName }: InvitationProps) {
                     className="absolute right-[-15%] sm:right-[-5%] lg:right-[4%] top-1/2 -translate-y-1/2 pointer-events-none select-none z-10 transform-gpu opacity-40 sm:opacity-75 lg:opacity-90"
                   >
                     <Ornament type="gunungan" size={240} flip={true} />
-                  </motion.div>
+                  </motion.div> */}
 
                   {/* KARTU TENGAH COVER */}
                   <motion.div
@@ -164,14 +158,14 @@ export function Invitation({ guestName }: InvitationProps) {
                     </motion.div>
 
                     {/* GUNUNGAN DI TENGAH ATAS (Motion Masuk: y: 40 -> 0, 1.2s) */}
-                    <motion.div
+                    {/* <motion.div
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                       className="mb-3 transform-gpu select-none"
                     >
                       <Ornament type="gunungan" size={88} className="drop-shadow-lg" />
-                    </motion.div>
+                    </motion.div> */}
 
                     {/* TEKS DI TENGAH (Motion Masuk: Stagger 0.15s) */}
                     <motion.div
@@ -269,7 +263,6 @@ export function Invitation({ guestName }: InvitationProps) {
                     </motion.div>
                   </motion.div>
                 </div>
-              </BatikBackground>
             </motion.div>
           )}
         </AnimatePresence>

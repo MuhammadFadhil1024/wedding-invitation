@@ -58,7 +58,7 @@ export function HeroSection({ guestName }: HeroSectionProps) {
       </Reveal>
 
       <Reveal delay={0.25} className="relative z-10">
-        <h1 className="font-serif text-5xl md:text-7xl font-normal text-white tracking-tight mb-2">
+        <h1 className="font-serif text-5xl md:text-7xl font-normal text-gading tracking-tight mb-2">
           {weddingConfig.groom.name}{" "}
           <span className="font-script text-5xl md:text-7xl text-emas font-light mx-2">
             &
@@ -82,7 +82,7 @@ export function HeroSection({ guestName }: HeroSectionProps) {
           <span className="text-xs uppercase tracking-wider text-gading-light font-medium">
             Spesial untuk:
           </span>
-          <span className="font-semibold text-white text-sm">{guestName}</span>
+          <span className="font-semibold text-gading text-sm">{guestName}</span>
         </div>
       </Reveal>
 
