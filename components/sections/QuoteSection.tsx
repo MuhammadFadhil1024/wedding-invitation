@@ -46,7 +46,7 @@ export function QuoteSection() {
       </div>
 
       {/* Corner ornaments with animation */}
-      <motion.div
+      {/* <motion.div
         className="absolute top-6 left-6"
         variants={cornerVariants}
         initial="hidden"
@@ -54,9 +54,9 @@ export function QuoteSection() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <Ornament type="corner" position="top-left" size={72} className="text-emas" />
-      </motion.div>
+      </motion.div> */}
 
-      <motion.div
+      {/* <motion.div
         className="absolute top-6 right-6"
         variants={cornerVariants}
         initial="hidden"
@@ -64,9 +64,9 @@ export function QuoteSection() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <Ornament type="corner" position="top-right" size={72} className="text-emas" />
-      </motion.div>
+      </motion.div> */}
 
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-6 left-6"
         variants={cornerVariants}
         initial="hidden"
@@ -74,9 +74,9 @@ export function QuoteSection() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <Ornament type="corner" position="bottom-left" size={72} className="text-emas" />
-      </motion.div>
+      </motion.div> */}
 
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-6 right-6"
         variants={cornerVariants}
         initial="hidden"
@@ -84,7 +84,7 @@ export function QuoteSection() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <Ornament type="corner" position="bottom-right" size={72} className="text-emas" />
-      </motion.div>
+      </motion.div> */}
 
       <div className="relative z-10 max-w-3xl mx-auto">
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -115,7 +115,7 @@ export function QuoteSection() {
             </motion.p>
             
             {/* Closing quote mark */}
-            <Ornament type="divider" className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-emas/60 transform scale-150 rotate-180" />
+            {/* <Ornament type="divider" className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-emas/60 transform scale-150 rotate-180" /> */}
           </motion.div>
 
           {/* Divider */}

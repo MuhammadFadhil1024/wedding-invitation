@@ -42,13 +42,13 @@ export function HeroSection({ guestName }: HeroSectionProps) {
         type="corner"
         position="top-left"
         size={60}
-        className="relative z-10"
+        className="z-10"
       />
       <Ornament
         type="corner"
         position="top-right"
         size={60}
-        className="relative z-10"
+        className="z-10"
       />
 
       <Reveal delay={0.1} className="relative z-10">
@@ -58,7 +58,7 @@ export function HeroSection({ guestName }: HeroSectionProps) {
       </Reveal>
 
       <Reveal delay={0.25} className="relative z-10">
-        <h1 className="font-serif text-5xl md:text-7xl font-normal text-gading tracking-tight mb-2">
+        <h1 className="font-serif text-5xl md:text-7xl font-normal text-arang tracking-tight mb-2">
           {weddingConfig.groom.name}{" "}
           <span className="font-script text-5xl md:text-7xl text-emas font-light mx-2">
             &
@@ -72,17 +72,17 @@ export function HeroSection({ guestName }: HeroSectionProps) {
       </Reveal>
 
       <Reveal delay={0.5} className="relative z-10">
-        <p className="font-serif text-lg md:text-xl text-gading-light italic">
+        <p className="font-serif text-lg md:text-xl text-arang-light italic">
           {weddingDateStr}
         </p>
       </Reveal>
 
       <Reveal delay={0.65} className="relative z-10">
         <div className="mt-8 glass-card px-6 py-3 rounded-full border border-emas/40 shadow-sm inline-flex items-center gap-2">
-          <span className="text-xs uppercase tracking-wider text-gading-light font-medium">
+          <span className="text-xs uppercase tracking-wider text-arang-light font-medium">
             Spesial untuk:
           </span>
-          <span className="font-semibold text-gading text-sm">{guestName}</span>
+          <span className="font-semibold text-arang text-sm">{guestName}</span>
         </div>
       </Reveal>
 
@@ -97,7 +97,7 @@ export function HeroSection({ guestName }: HeroSectionProps) {
           href={calendarUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 glass-card px-6 py-3 rounded-full border border-emas/60 shadow-md hover:border-emas hover:shadow-lg hover:shadow-emas/20 transition-all duration-300 text-white font-medium text-sm"
+          className="inline-flex items-center gap-2 glass-card px-6 py-3 rounded-full border border-emas/60 shadow-md hover:border-emas hover:shadow-lg hover:shadow-emas/20 transition-all duration-300 text-arang font-medium text-sm"
         >
           <svg
             className="w-4 h-4 text-emas"
@@ -136,6 +136,20 @@ export function HeroSection({ guestName }: HeroSectionProps) {
           </svg>
         </div>
       </Reveal>
+
+      <Ornament
+        type="corner"
+        position="bottom-left"
+        size={60}
+        className="z-10"
+      />
+      <Ornament
+        type="corner"
+        position="bottom-right"
+        size={60}
+        className="z-10"
+      />
+
     </section>
   );
 }

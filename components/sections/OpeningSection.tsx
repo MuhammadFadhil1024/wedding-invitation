@@ -116,7 +116,7 @@ export function OpeningSection({ guestName }: OpeningSectionProps) {
       </div>
 
       {/* Top Border Ornament - Animated Stroke */}
-      <div className="pointer-events-none absolute top-6 inset-x-0 z-10 flex justify-center px-32 sm:px-44">
+      {/* <div className="pointer-events-none absolute top-6 inset-x-0 z-10 flex justify-center px-32 sm:px-44">
         <svg
           className="w-full max-w-[360px] h-8 text-emas"
           viewBox="0 0 360 36"
@@ -135,10 +135,10 @@ export function OpeningSection({ guestName }: OpeningSectionProps) {
             variants={borderVariants}
           />
         </svg>
-      </div>
+      </div> */}
 
       {/* Bottom Border Ornament - Animated Stroke */}
-      <div className="pointer-events-none absolute bottom-6 inset-x-0 z-10 flex justify-center px-32 sm:px-44">
+      {/* <div className="pointer-events-none absolute bottom-6 inset-x-0 z-10 flex justify-center px-32 sm:px-44">
         <svg
           className="w-full max-w-[360px] h-8 text-emas rotate-180"
           viewBox="0 0 360 36"
@@ -157,7 +157,7 @@ export function OpeningSection({ guestName }: OpeningSectionProps) {
             variants={borderVariants}
           />
         </svg>
-      </div>
+      </div> */}
 
       {/* Lotus flowers di keempat sudut - statis (tanpa motion), ukuran besar, mobile-first */}
       <div

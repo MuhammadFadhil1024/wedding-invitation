@@ -51,7 +51,7 @@ export function Countdown({ className, showLabels = true }: CountdownProps) {
   return (
     <div
       className={cn(
-        "glass-card relative overflow-hidden border border-emas/40",
+        "glass-card relative overflow-hidden border border-emas/40 px-6 py-2",
         className
       )}
     >
@@ -67,7 +67,7 @@ export function Countdown({ className, showLabels = true }: CountdownProps) {
       )}
 
       <div
-        className="grid grid-cols-4 gap-3 text-center"
+        className="grid grid-cols-4 gap-3 text-center mb-4"
         suppressHydrationWarning
       >
         {items.map((item, idx) => (
