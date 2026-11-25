@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 /* TODO: ganti aset final jika tersedia dari desainer */
-type OrnamentType = "divider" | "corner" | "gunungan" | "gapura" | "parang" | "flourish" | "melati";
+type OrnamentType = "divider" | "corner" | "gunungan" | "gapura" | "parang" | "flourish" | "melati" | "lotus";
 type CornerPosition = "top-left" | "top-right" | "bottom-left" | "bottom-right";
 
 interface OrnamentProps {
@@ -98,6 +98,81 @@ export function Ornament({
           <path d="M 56 4 Q 68 0 78 4" stroke="currentColor" strokeWidth="1.2" />
           <circle cx="4" cy="56" r="2.5" fill="currentColor" />
           <path d="M 4 56 Q 0 68 4 78" stroke="currentColor" strokeWidth="1.2" />
+        </svg>
+      </div>
+    );
+  }
+
+  // 3b. Teratai / Lotus (Kembang Teratai - Sacred Lotus)
+  // Catatan: komponen ini TIDAK memposisikan dirinya sendiri (tidak `absolute`),
+  // supaya parent bisa menempatkannya di sudut tanpa parent berukuran 0x0.
+  if (type === "lotus") {
+    const rotationMap: Record<CornerPosition, string> = {
+      // Kelopak lotus hanya membuka pada busur ~135° (pusat busur di 67.5° dari atas).
+      // Rotasi di bawah membuat busur kelopak mengarah tepat ke tengah halaman,
+      // yaitu ke nama kedua mempelai.
+      "top-left": "rotate-[67.5deg]",
+      "top-right": "rotate-[157.5deg]",
+      "bottom-right": "rotate-[247.5deg]",
+      "bottom-left": "rotate-[337.5deg]",
+    };
+
+    return (
+      <div
+        className={cn(
+          "pointer-events-none select-none h-28 w-28 text-emas",
+          rotationMap[position],
+          className
+        )}
+        style={size ? { width: size, height: size } : undefined}
+      >
+        <svg
+          viewBox="0 0 120 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="block h-full w-full overflow-visible drop-shadow-sm"
+          aria-hidden="true"
+        >
+          {/* Outer petals (larger, back layer) */}
+          <g fill="currentColor" fillOpacity="0.25">
+            <ellipse cx="60" cy="20" rx="18" ry="30" transform="rotate(0 60 60)" />
+            <ellipse cx="60" cy="20" rx="18" ry="30" transform="rotate(45 60 60)" />
+            <ellipse cx="60" cy="20" rx="18" ry="30" transform="rotate(90 60 60)" />
+            <ellipse cx="60" cy="20" rx="18" ry="30" transform="rotate(135 60 60)" />
+          </g>
+
+          {/* Middle petals */}
+          <g fill="currentColor" fillOpacity="0.4">
+            <ellipse cx="60" cy="28" rx="14" ry="24" transform="rotate(22.5 60 60)" />
+            <ellipse cx="60" cy="28" rx="14" ry="24" transform="rotate(67.5 60 60)" />
+            <ellipse cx="60" cy="28" rx="14" ry="24" transform="rotate(112.5 60 60)" />
+            <ellipse cx="60" cy="28" rx="14" ry="24" transform="rotate(157.5 60 60)" />
+          </g>
+
+          {/* Inner petals (upright, more closed) */}
+          <g fill="currentColor" fillOpacity="0.6">
+            <ellipse cx="60" cy="34" rx="10" ry="18" transform="rotate(0 60 60)" />
+            <ellipse cx="60" cy="34" rx="10" ry="18" transform="rotate(60 60 60)" />
+            <ellipse cx="60" cy="34" rx="10" ry="18" transform="rotate(120 60 60)" />
+          </g>
+
+          {/* Center stamen */}
+          <circle cx="60" cy="60" r="8" fill="currentColor" fillOpacity="0.8" />
+          <g stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <line x1="60" y1="52" x2="60" y2="40" />
+            <line x1="60" y1="52" x2="68" y2="44" />
+            <line x1="60" y1="52" x2="52" y2="44" />
+            <line x1="60" y1="52" x2="66" y2="48" />
+            <line x1="60" y1="52" x2="54" y2="48" />
+          </g>
+
+          {/* Subtle decorative dots around */}
+          <g fill="currentColor" fillOpacity="0.3">
+            <circle cx="20" cy="20" r="2" />
+            <circle cx="100" cy="20" r="2" />
+            <circle cx="20" cy="100" r="2" />
+            <circle cx="100" cy="100" r="2" />
+          </g>
         </svg>
       </div>
     );

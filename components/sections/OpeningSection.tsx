@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion, type Variants } from "motion/react";
 import { weddingConfig } from "@/config/wedding";
 import { BatikBackground } from "@/components/ui/BatikBackground";
+import { Ornament } from "@/components/ui/Ornament";
 
 interface OpeningSectionProps {
   guestName: string;
@@ -95,59 +96,113 @@ export function OpeningSection({ guestName }: OpeningSectionProps) {
 
   return (
     <section
-      ref={batikRef}
       className="relative min-h-dvh flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden"
       aria-label="Opening section"
     >
-      {/* Batik Kawung Background */}
-      <BatikBackground
-        opacity={0.08}
-        strokeColor="#5B3A1E"
-        variant="kawung"
-        className="absolute inset-0 w-full h-full pointer-events-none select-none z-0"
+      {/* Batik Kawung Background (satu-satunya elemen yang ikut animasi drift) */}
+      <div
+        ref={batikRef}
+        className="pointer-events-none absolute -inset-8 z-0 select-none"
+        aria-hidden="true"
       >
-        <div className="w-full h-full" />
-      </BatikBackground>
+        <BatikBackground
+          opacity={0.08}
+          strokeColor="#5B3A1E"
+          variant="kawung"
+          className="h-full w-full"
+        >
+          <div className="w-full h-full" />
+        </BatikBackground>
+      </div>
 
       {/* Top Border Ornament - Animated Stroke */}
-      <svg
-        className="absolute top-6 left-1/2 -translate-x-1/2 w-full max-w-[360px] h-8 pointer-events-none select-none z-10 text-emas"
-        viewBox="0 0 360 36"
-        fill="none"
-        aria-hidden="true"
-      >
-        <motion.path
-          d="M 2 18 H 358 M 2 18 Q 90 2 180 18 Q 270 34 358 18"
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <div className="pointer-events-none absolute top-6 inset-x-0 z-10 flex justify-center px-32 sm:px-44">
+        <svg
+          className="w-full max-w-[360px] h-8 text-emas"
+          viewBox="0 0 360 36"
           fill="none"
-          strokeLinecap="round"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={borderVariants}
-        />
-      </svg>
+          aria-hidden="true"
+        >
+          <motion.path
+            d="M 2 18 H 358 M 2 18 Q 90 2 180 18 Q 270 34 358 18"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={borderVariants}
+          />
+        </svg>
+      </div>
 
       {/* Bottom Border Ornament - Animated Stroke */}
-      <svg
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full max-w-[360px] h-8 pointer-events-none select-none z-10 text-emas rotate-180"
-        viewBox="0 0 360 36"
-        fill="none"
-        aria-hidden="true"
-      >
-        <motion.path
-          d="M 2 18 H 358 M 2 18 Q 90 2 180 18 Q 270 34 358 18"
-          stroke="currentColor"
-          strokeWidth="1.5"
+      <div className="pointer-events-none absolute bottom-6 inset-x-0 z-10 flex justify-center px-32 sm:px-44">
+        <svg
+          className="w-full max-w-[360px] h-8 text-emas rotate-180"
+          viewBox="0 0 360 36"
           fill="none"
-          strokeLinecap="round"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={borderVariants}
+          aria-hidden="true"
+        >
+          <motion.path
+            d="M 2 18 H 358 M 2 18 Q 90 2 180 18 Q 270 34 358 18"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={borderVariants}
+          />
+        </svg>
+      </div>
+
+      {/* Lotus flowers di keempat sudut - statis (tanpa motion), ukuran besar, mobile-first */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-0 z-20 sm:top-2 sm:left-2"
+      >
+        <Ornament
+          type="lotus"
+          position="top-left"
+          className="h-32 w-32 text-maroon sm:h-40 sm:w-40"
         />
-      </svg>
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 right-0 z-20 sm:top-2 sm:right-2"
+      >
+        <Ornament
+          type="lotus"
+          position="top-right"
+          className="h-32 w-32 text-maroon sm:h-40 sm:w-40"
+        />
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 z-20 sm:bottom-2 sm:left-2"
+      >
+        <Ornament
+          type="lotus"
+          position="bottom-left"
+          className="h-24 w-24 text-maroon/80 sm:h-32 sm:w-32"
+        />
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 right-0 z-20 sm:bottom-2 sm:right-2"
+      >
+        <Ornament
+          type="lotus"
+          position="bottom-right"
+          className="h-24 w-24 text-maroon/80 sm:h-32 sm:w-32"
+        />
+      </div>
 
       <div className="relative z-10 w-full max-w-4xl mx-auto">
         {/* Opening Greeting - "Rahayu" / "Kanthi nyuwun pangestu" */}
